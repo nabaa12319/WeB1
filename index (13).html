@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>موقعي الأول</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 24px;
+      padding: 24px;
+      text-align: center;
+      font-family: system-ui, -apple-system, "Segoe UI", Arial, sans-serif;
+      color: #fff;
+      background: #6c5ce7;
+      transition: background 0.6s ease;
+    }
+    h1 {
+      margin: 0;
+      font-size: clamp(2.5rem, 8vw, 5rem);
+      text-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+    }
+    p {
+      margin: 0;
+      max-width: 36ch;
+      font-size: 1.25rem;
+      line-height: 1.6;
+    }
+    button {
+      font: inherit;
+      font-size: 1.1rem;
+      font-weight: 600;
+      padding: 14px 32px;
+      border: none;
+      border-radius: 999px;
+      cursor: pointer;
+      color: #222;
+      background: #fff;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
+      transition: transform 0.15s ease;
+    }
+    button:hover { transform: scale(1.06); }
+    button:active { transform: scale(0.96); }
+    #count { font-size: 1rem; opacity: 0.85; }
+  </style>
+</head>
+<body>
+  <h1>أهلاً بالعالم! 👋</h1>
+  <p>هاد أول موقع إلي على الإنترنت. اضغط على الزر وشوف شو بصير.</p>
+  <button id="btn">غيّر اللون</button>
+  <div id="count">عدد الضغطات: 0</div>
+
+  <script>
+    var btn = document.getElementById("btn");
+    var count = document.getElementById("count");
+    var clicks = 0;
+
+    btn.addEventListener("click", function () {
+      clicks++;
+      var hue = Math.floor(Math.random() * 360);
+      document.body.style.background = "hsl(" + hue + ", 70%, 45%)";
+      count.textContent = "عدد الضغطات: " + clicks;
+    });
+  </script>
+</body>
+</html>
